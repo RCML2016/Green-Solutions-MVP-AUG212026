@@ -1,12 +1,16 @@
 """
-Green Solutions Intelligent Platform
-V2 - Enterprise SaaS Experience
+Green Solutions
+Enterprise AI Sustainability Intelligence Platform
 
-Existing backend preserved:
-    synthetic_data -> LangGraph -> Agents -> Reports -> Feedback
+UI:
+    Overview
+    AI Intelligence
+    Asset 360
+    Operations
+    Reports
 
-Run:
-    streamlit run app.py
+Backend:
+    LangGraph + AI Diagnostics + Human Review + Report Generation
 """
 
 import os
@@ -26,7 +30,7 @@ from feedback_store import save_feedback, load_feedback
 # =============================================================================
 
 st.set_page_config(
-    page_title="Green Solutions",
+    page_title="Green Solutions | AI Powered - Intelligent Sustainability",
     page_icon="🌱",
     layout="wide",
     initial_sidebar_state="collapsed",
@@ -34,7 +38,7 @@ st.set_page_config(
 
 
 # =============================================================================
-# PREMIUM PRODUCT CSS
+# DESIGN SYSTEM
 # =============================================================================
 
 st.markdown(
@@ -46,58 +50,52 @@ st.markdown(
    ============================================================ */
 
 .stApp {
-    background:
-        radial-gradient(
-            circle at 85% 5%,
-            rgba(44, 177, 113, 0.08),
-            transparent 28%
-        ),
-        #f7faf8;
-    color: #15261d;
+    background: #F6F9F7;
+    color: #183328;
 }
 
 .main .block-container {
-    max-width: 1320px;
-    padding-top: 1.5rem;
-    padding-bottom: 4rem;
+    max-width: 1380px;
+    padding: 1.2rem 2.2rem 4rem 2.2rem;
 }
 
-/* Hide Streamlit chrome */
-
-#MainMenu {
-    visibility: hidden;
-}
-
-footer {
-    visibility: hidden;
-}
-
+#MainMenu,
+footer,
 header {
     visibility: hidden;
 }
 
 
 /* ============================================================
-   TOP NAV
+   TYPOGRAPHY
    ============================================================ */
 
-.top-nav {
+h1, h2, h3, h4 {
+    color: #173326 !important;
+}
+
+
+/* ============================================================
+   BRAND
+   ============================================================ */
+
+.brand-row {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 4px 0 25px 0;
+    margin-bottom: 12px;
 }
 
-.brand {
+.brand-left {
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 12px;
 }
 
-.brand-icon {
-    width: 38px;
-    height: 38px;
-    border-radius: 11px;
+.brand-logo {
+    width: 42px;
+    height: 42px;
+    border-radius: 13px;
 
     display: flex;
     align-items: center;
@@ -105,39 +103,77 @@ header {
 
     background: linear-gradient(
         135deg,
-        #0f7b4d,
-        #32b76f
+        #0C7044,
+        #35B96E
     );
 
     color: white;
-    font-size: 20px;
+    font-size: 22px;
+
     box-shadow:
-        0 6px 18px rgba(15,123,77,.20);
+        0 8px 20px rgba(12,112,68,.18);
 }
 
-.brand-name {
-    font-size: 18px;
-    font-weight: 750;
+.brand-title {
+    font-size: 19px;
+    font-weight: 800;
     color: #173326;
 }
 
-.brand-sub {
+.brand-subtitle {
     font-size: 10px;
-    color: #789084;
+    color: #7A8D83;
     margin-top: -2px;
 }
 
-.live-pill {
-    background: #eaf8f0;
-    color: #16784b;
-    border: 1px solid #cdebd9;
+.live {
+    background: #E9F8F0;
+    border: 1px solid #CDEBDD;
+
+    color: #157A4A;
+
+    padding: 7px 13px;
 
     border-radius: 30px;
 
-    padding: 7px 12px;
+    font-size: 10px;
 
-    font-size: 11px;
-    font-weight: 700;
+    font-weight: 800;
+
+    letter-spacing: .5px;
+}
+
+
+/* ============================================================
+   NAVIGATION
+   ============================================================ */
+
+div.stButton > button {
+
+    border-radius: 9px;
+
+    border: 1px solid #E1E9E4;
+
+    background: white;
+
+    color: #476055;
+
+    font-size: 12px;
+
+    font-weight: 650;
+
+    min-height: 38px;
+
+    transition: all .15s ease;
+}
+
+div.stButton > button:hover {
+
+    border-color: #94CFAE;
+
+    color: #126B42;
+
+    background: #F2FAF5;
 }
 
 
@@ -146,41 +182,43 @@ header {
    ============================================================ */
 
 .hero {
+
     position: relative;
 
     overflow: hidden;
 
-    border-radius: 26px;
+    border-radius: 25px;
 
-    padding: 54px 58px;
+    padding: 48px 54px;
 
-    margin-bottom: 28px;
+    margin: 18px 0 28px 0;
 
     background:
         radial-gradient(
-            circle at 90% 10%,
-            rgba(105, 211, 150, .20),
-            transparent 25%
+            circle at 85% 15%,
+            rgba(96,215,145,.22),
+            transparent 26%
         ),
         linear-gradient(
             135deg,
-            #09271b 0%,
-            #0d3c29 55%,
-            #0c5035 100%
+            #08291C,
+            #0D432C 60%,
+            #0D5739
         );
 
     box-shadow:
-        0 20px 60px rgba(15, 75, 48, .15);
+        0 22px 60px rgba(12,73,46,.16);
 }
 
 .hero-eyebrow {
-    color: #7de0a9;
 
-    font-size: 12px;
+    color: #76DCA6;
 
-    font-weight: 750;
+    font-size: 11px;
 
-    letter-spacing: 1.8px;
+    font-weight: 800;
+
+    letter-spacing: 1.7px;
 
     text-transform: uppercase;
 
@@ -188,110 +226,115 @@ header {
 }
 
 .hero-title {
+
     color: white;
 
-    font-size: 46px;
+    font-size: 43px;
 
-    line-height: 1.05;
+    line-height: 1.08;
 
-    font-weight: 800;
+    font-weight: 820;
 
-    max-width: 750px;
-
-    margin-bottom: 18px;
+    max-width: 760px;
 }
 
 .hero-title span {
-    color: #75dda4;
+    color: #79DDA8;
 }
 
 .hero-description {
-    color: #c3d9cc;
 
-    font-size: 16px;
+    color: #C3D9CC;
+
+    font-size: 15px;
 
     line-height: 1.65;
 
-    max-width: 680px;
+    max-width: 700px;
 
-    margin-bottom: 25px;
+    margin-top: 17px;
 }
 
-.hero-meta {
+.hero-status {
+
     display: flex;
-    gap: 25px;
 
-    color: #a8c4b4;
+    gap: 22px;
 
-    font-size: 12px;
+    margin-top: 23px;
+
+    color: #A9C8B7;
+
+    font-size: 11px;
 }
 
 
 /* ============================================================
-   SECTION HEADINGS
+   PAGE HEADER
    ============================================================ */
 
-.section {
-    margin-top: 34px;
-    margin-bottom: 15px;
+.page-header {
+    margin: 25px 0 20px 0;
 }
 
-.section-title {
-    font-size: 22px;
-    font-weight: 780;
-    color: #183328;
+.page-title {
+    font-size: 28px;
+    font-weight: 800;
+    color: #173326;
 }
 
-.section-subtitle {
-    color: #72857a;
+.page-subtitle {
+    color: #778980;
     font-size: 13px;
-    margin-top: 3px;
+    margin-top: 4px;
 }
 
 
 /* ============================================================
-   KPI
+   KPI CARDS
    ============================================================ */
 
 .kpi {
-    background: rgba(255,255,255,.92);
 
-    border: 1px solid #e2ebe5;
+    background: white;
 
-    border-radius: 16px;
+    border: 1px solid #E0E9E3;
+
+    border-radius: 17px;
 
     padding: 20px;
 
     min-height: 128px;
 
     box-shadow:
-        0 5px 18px rgba(22,53,38,.035);
+        0 5px 20px rgba(25,60,43,.035);
 }
 
 .kpi-label {
-    color: #789084;
 
-    font-size: 11px;
+    color: #7C8E85;
 
-    font-weight: 750;
+    font-size: 10px;
 
-    letter-spacing: .6px;
+    font-weight: 800;
 
-    text-transform: uppercase;
+    letter-spacing: .7px;
 }
 
 .kpi-value {
+
     color: #173326;
 
     font-size: 31px;
 
-    font-weight: 800;
+    font-weight: 820;
 
     margin-top: 8px;
 }
 
-.kpi-note {
-    color: #8b9c93;
+.kpi-description {
+
+    color: #8A9991;
 
     font-size: 11px;
 
@@ -300,72 +343,109 @@ header {
 
 
 /* ============================================================
-   AI INSIGHTS
+   SECTION
    ============================================================ */
 
-.ai-panel {
+.section {
+    margin: 34px 0 15px 0;
+}
+
+.section-title {
+
+    color: #183328;
+
+    font-size: 20px;
+
+    font-weight: 790;
+}
+
+.section-description {
+
+    color: #7B8C83;
+
+    font-size: 12px;
+
+    margin-top: 4px;
+}
+
+
+/* ============================================================
+   AI CARD
+   ============================================================ */
+
+.ai-card {
+
     background: white;
 
-    border: 1px solid #e2ebe5;
+    border: 1px solid #DFE9E3;
 
     border-radius: 18px;
 
-    padding: 23px;
+    padding: 21px;
 
     box-shadow:
-        0 8px 25px rgba(22,53,38,.035);
+        0 6px 22px rgba(22,53,38,.035);
 }
 
 .ai-header {
+
     display: flex;
+
     align-items: center;
+
     gap: 11px;
 
-    margin-bottom: 18px;
+    margin-bottom: 14px;
 }
 
 .ai-icon {
+
     width: 38px;
     height: 38px;
 
     border-radius: 11px;
 
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    background: #EAF8F0;
 
-    background: #eaf8f0;
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
 
     font-size: 19px;
 }
 
-.ai-title {
-    font-size: 16px;
-    font-weight: 760;
+.ai-name {
+
+    font-size: 15px;
+
+    font-weight: 780;
+
     color: #183328;
 }
 
-.ai-sub {
-    color: #819087;
-    font-size: 11px;
+.ai-label {
+
+    font-size: 10px;
+
+    color: #829189;
 }
 
 
 /* ============================================================
-   INSIGHT
+   FINDINGS
    ============================================================ */
 
-.insight {
+.finding {
+
+    border-top: 1px solid #ECF1EE;
+
     padding: 16px 0;
-
-    border-bottom: 1px solid #edf1ee;
 }
 
-.insight:last-child {
-    border-bottom: none;
-}
+.finding-header {
 
-.insight-top {
     display: flex;
 
     justify-content: space-between;
@@ -373,126 +453,194 @@ header {
     align-items: center;
 }
 
-.insight-name {
+.finding-title {
+
+    color: #1B3528;
+
     font-size: 14px;
-    font-weight: 720;
-    color: #1b3427;
+
+    font-weight: 760;
 }
 
-.insight-description {
-    color: #73847b;
-    font-size: 12px;
+.finding-description {
 
-    margin-top: 6px;
-
-    line-height: 1.55;
-}
-
-.high {
-    color: #b42318;
-}
-
-.medium {
-    color: #b54708;
-}
-
-.low {
-    color: #16784b;
-}
-
-
-/* ============================================================
-   FEATURE CARDS
-   ============================================================ */
-
-.feature-card {
-    background: white;
-
-    border: 1px solid #e2ebe5;
-
-    border-radius: 18px;
-
-    padding: 24px;
-
-    min-height: 190px;
-
-    transition: all .2s ease;
-
-    box-shadow:
-        0 5px 20px rgba(22,53,38,.03);
-}
-
-.feature-icon {
-    width: 42px;
-    height: 42px;
-
-    border-radius: 12px;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    background: #eef8f2;
-
-    font-size: 20px;
-
-    margin-bottom: 18px;
-}
-
-.feature-title {
-    font-weight: 750;
-
-    font-size: 15px;
-
-    color: #183328;
-
-    margin-bottom: 7px;
-}
-
-.feature-text {
-    color: #74867c;
+    color: #74857C;
 
     font-size: 12px;
 
     line-height: 1.6;
+
+    margin-top: 6px;
+}
+
+.risk-high {
+    color: #B42318;
+    font-weight: 750;
+}
+
+.risk-medium {
+    color: #B54708;
+    font-weight: 750;
+}
+
+.risk-low {
+    color: #16784B;
+    font-weight: 750;
 }
 
 
 /* ============================================================
-   AI COPILOT
+   ASSET CARD
    ============================================================ */
 
-.copilot {
-    background:
-        linear-gradient(
-            135deg,
-            #eefaf3,
-            #f7fcf9
-        );
+.asset-card {
 
-    border: 1px solid #d7ecdf;
+    background: white;
+
+    border: 1px solid #E1E9E4;
+
+    border-radius: 17px;
+
+    padding: 20px;
+
+    margin-bottom: 12px;
+}
+
+.asset-id {
+
+    font-size: 17px;
+
+    font-weight: 800;
+
+    color: #173326;
+}
+
+.asset-fault {
+
+    color: #5D7467;
+
+    font-size: 12px;
+
+    margin-top: 4px;
+}
+
+
+/* ============================================================
+   OPERATIONS
+   ============================================================ */
+
+.priority-high {
+
+    background: #FFF0EF;
+
+    color: #B42318;
+
+    border: 1px solid #F5D0CC;
 
     border-radius: 20px;
 
-    padding: 26px;
+    padding: 5px 9px;
+
+    font-size: 10px;
+
+    font-weight: 800;
+}
+
+.priority-medium {
+
+    background: #FFF6E8;
+
+    color: #B54708;
+
+    border: 1px solid #F2DFC1;
+
+    border-radius: 20px;
+
+    padding: 5px 9px;
+
+    font-size: 10px;
+
+    font-weight: 800;
+}
+
+
+/* ============================================================
+   COPILOT
+   ============================================================ */
+
+.copilot {
+
+    background:
+
+        linear-gradient(
+            135deg,
+            #ECF9F2,
+            #F8FCF9
+        );
+
+    border: 1px solid #D6EBDD;
+
+    border-radius: 19px;
+
+    padding: 24px;
 }
 
 .copilot-title {
-    color: #174d32;
 
-    font-size: 19px;
+    color: #174B31;
+
+    font-size: 18px;
+
+    font-weight: 800;
+}
+
+.copilot-description {
+
+    color: #667B70;
+
+    font-size: 12px;
+
+    line-height: 1.6;
+
+    margin-top: 6px;
+}
+
+
+/* ============================================================
+   REPORT CARD
+   ============================================================ */
+
+.report-card {
+
+    background: white;
+
+    border: 1px solid #E0E9E3;
+
+    border-radius: 17px;
+
+    padding: 22px;
+
+    min-height: 170px;
+}
+
+.report-title {
+
+    color: #173326;
+
+    font-size: 15px;
 
     font-weight: 780;
 }
 
-.copilot-text {
-    color: #63796d;
+.report-description {
 
-    font-size: 13px;
+    color: #778980;
 
-    line-height: 1.55;
+    font-size: 12px;
 
-    margin-top: 5px;
+    line-height: 1.6;
+
+    margin-top: 7px;
 }
 
 
@@ -501,11 +649,12 @@ header {
    ============================================================ */
 
 .footer {
+
     text-align: center;
 
-    color: #91a099;
+    color: #91A098;
 
-    font-size: 11px;
+    font-size: 10px;
 
     padding-top: 25px;
 }
@@ -517,7 +666,7 @@ header {
 
 
 # =============================================================================
-# DEMO MODE
+# DEMO / LLM
 # =============================================================================
 
 def demo_mode_active():
@@ -531,14 +680,12 @@ def demo_mode_active():
 class DemoResponse:
 
     def __init__(self, content):
-
         self.content = content
 
 
 class DemoLLM:
 
     def __init__(self, mode):
-
         self.mode = mode
 
     def invoke(self, prompt):
@@ -607,7 +754,10 @@ def run_pipeline():
 
     df = generate_portfolio()
 
-    df.to_csv("sample_portfolio.csv", index=False)
+    df.to_csv(
+        "sample_portfolio.csv",
+        index=False
+    )
 
     if demo_mode_active():
 
@@ -646,15 +796,24 @@ def fault_label(fault):
     if fault == "none":
         return "Healthy"
 
-    return fault.replace("_", " ").title()
+    return fault.replace(
+        "_",
+        " "
+    ).title()
 
 
-def risk_level(d):
+def risk_level(diagnosis):
 
-    fault = d.get("fault_hypothesis", "none")
+    fault = diagnosis.get(
+        "fault_hypothesis",
+        "none"
+    )
 
     confidence = float(
-        d.get("confidence", 0)
+        diagnosis.get(
+            "confidence",
+            0
+        )
     )
 
     if fault == "none":
@@ -669,93 +828,103 @@ def risk_level(d):
 def risk_class(level):
 
     if level == "High":
-        return "high"
+        return "risk-high"
 
     if level == "Medium":
-        return "medium"
+        return "risk-medium"
 
-    return "low"
-
-
-def average_confidence(diagnoses):
-
-    if not diagnoses:
-        return 0
-
-    return sum(
-        float(d.get("confidence", 0))
-        for d in diagnoses
-    ) / len(diagnoses)
+    return "risk-low"
 
 
 # =============================================================================
-# LOAD DATA
+# RUN
 # =============================================================================
 
-if "pipeline_result" not in st.session_state:
+if "result" not in st.session_state:
 
-    with st.spinner("Preparing your intelligent sustainability workspace..."):
+    with st.spinner(
+        "Initializing Green Solutions Intelligence..."
+    ):
 
-        st.session_state.pipeline_result = run_pipeline()
+        st.session_state.result = run_pipeline()
 
-result = st.session_state.pipeline_result
+result = st.session_state.result
 
 diagnoses = result.get(
     "diagnoses",
     []
 )
 
-total_assets = len(diagnoses)
-
-issues = sum(
-    1
-    for d in diagnoses
-    if d.get("fault_hypothesis") != "none"
-)
-
-healthy = total_assets - issues
-
-avg_confidence = average_confidence(
+total_assets = len(
     diagnoses
 )
 
-high_risk = sum(
-    1
+active_findings = [
+    d
     for d in diagnoses
+    if d.get("fault_hypothesis") != "none"
+]
+
+healthy_assets = (
+    total_assets
+    - len(active_findings)
+)
+
+high_risk_assets = [
+    d
+    for d in active_findings
     if risk_level(d) == "High"
+]
+
+avg_confidence = (
+    sum(
+        float(d.get("confidence", 0))
+        for d in diagnoses
+    )
+    / total_assets
+    if total_assets
+    else 0
+)
+
+health_score = (
+    healthy_assets
+    / total_assets
+    * 100
+    if total_assets
+    else 0
 )
 
 
 # =============================================================================
-# SESSION NAVIGATION
+# SESSION NAV
 # =============================================================================
 
 if "page" not in st.session_state:
 
-    st.session_state.page = "Home"
+    st.session_state.page = "Overview"
 
 
 # =============================================================================
-# TOP NAVIGATION
+# BRAND
 # =============================================================================
 
 st.markdown(
     """
-<div class="top-nav">
+<div class="brand-row">
 
-    <div class="brand">
+    <div class="brand-left">
 
-        <div class="brand-icon">
+        <div class="brand-logo">
             🌱
         </div>
 
         <div>
 
-            <div class="brand-name">
+            <div class="brand-title">
                 Green Solutions
             </div>
 
-            <div class="brand-sub">
+            <div class="brand-subtitle">
                 Intelligent Sustainability Platform
             </div>
 
@@ -763,7 +932,7 @@ st.markdown(
 
     </div>
 
-    <div class="live-pill">
+    <div class="live">
         ● PLATFORM LIVE
     </div>
 
@@ -774,71 +943,44 @@ st.markdown(
 
 
 # =============================================================================
-# NAVIGATION
+# NAV
 # =============================================================================
 
-nav1, nav2, nav3, nav4, nav5 = st.columns(
-    [1, 1, 1, 1, 1]
+n1, n2, n3, n4, n5 = st.columns(
+    [1, 1.15, 1, 1, 1]
 )
 
-with nav1:
+nav_items = [
+    (n1, "Overview", "⌂  Overview"),
+    (n2, "AI Intelligence", "✦  AI Intelligence"),
+    (n3, "Asset 360", "◉  Asset 360"),
+    (n4, "Operations", "⚙  Operations"),
+    (n5, "Reports", "▣  Reports"),
+]
 
-    if st.button(
-        "⌂  Home",
-        use_container_width=True
-    ):
+for col, page, label in nav_items:
 
-        st.session_state.page = "Home"
+    with col:
 
+        if st.button(
+            label,
+            key=f"nav_{page}",
+            use_container_width=True,
+        ):
 
-with nav2:
+            st.session_state.page = page
 
-    if st.button(
-        "✦  AI Copilot",
-        use_container_width=True
-    ):
-
-        st.session_state.page = "AI Copilot"
-
-
-with nav3:
-
-    if st.button(
-        "☀  Assets",
-        use_container_width=True
-    ):
-
-        st.session_state.page = "Assets"
-
-
-with nav4:
-
-    if st.button(
-        "⚙  Operations",
-        use_container_width=True
-    ):
-
-        st.session_state.page = "Operations"
-
-
-with nav5:
-
-    if st.button(
-        "▣  Reports",
-        use_container_width=True
-    ):
-
-        st.session_state.page = "Reports"
+            st.rerun()
 
 
 st.divider()
 
 
 # =============================================================================
-# HOME
+# OVERVIEW
 # =============================================================================
 
-if st.session_state.page == "Home":
+if st.session_state.page == "Overview":
 
     st.markdown(
         f"""
@@ -854,19 +996,16 @@ if st.session_state.page == "Home":
     </div>
 
     <div class="hero-description">
-        Green Solutions uses AI to detect operational issues,
-        explain what is happening, and recommend the next best
-        action for your sustainability and asset operations teams.
+        Green Solutions continuously analyzes asset performance,
+        identifies operational anomalies, explains the evidence,
+        and recommends the next best action for your teams.
     </div>
 
-    <div class="hero-meta">
-
+    <div class="hero-status">
         <span>✦ AI Diagnostics</span>
-
-        <span>✦ Human-in-the-loop</span>
-
         <span>✦ Evidence-based insights</span>
-
+        <span>✦ Human review</span>
+        <span>✦ Action-oriented intelligence</span>
     </div>
 
 </div>
@@ -875,44 +1014,58 @@ if st.session_state.page == "Home":
     )
 
     st.markdown(
-        '<div class="section">'
-        '<div class="section-title">Portfolio at a glance</div>'
-        '<div class="section-subtitle">'
-        'AI-generated operational intelligence from your current portfolio.'
-        '</div></div>',
+        """
+        <div class="page-header">
+
+            <div class="page-title">
+                Executive Overview
+            </div>
+
+            <div class="page-subtitle">
+                A real-time view of portfolio health and AI-generated intelligence.
+            </div>
+
+        </div>
+        """,
         unsafe_allow_html=True,
     )
 
-    c1, c2, c3, c4 = st.columns(4)
+    k1, k2, k3, k4, k5 = st.columns(5)
 
     kpis = [
         (
-            c1,
+            k1,
             "PORTFOLIO HEALTH",
-            f"{(healthy / total_assets * 100) if total_assets else 0:.0f}%",
-            "Assets without active findings",
+            f"{health_score:.0f}%",
+            "Healthy assets",
         ),
         (
-            c2,
+            k2,
             "ASSETS MONITORED",
-            total_assets,
-            "AI-analyzed assets",
+            str(total_assets),
+            "Active portfolio",
         ),
         (
-            c3,
+            k3,
             "AI FINDINGS",
-            issues,
-            "Operational issues detected",
+            str(len(active_findings)),
+            "Issues detected",
         ),
         (
-            c4,
+            k4,
+            "HIGH PRIORITY",
+            str(len(high_risk_assets)),
+            "Requires attention",
+        ),
+        (
+            k5,
             "AI CONFIDENCE",
             f"{avg_confidence:.0%}",
-            "Average diagnostic confidence",
+            "Average confidence",
         ),
     ]
 
-    for col, label, value, note in kpis:
+    for col, label, value, desc in kpis:
 
         with col:
 
@@ -928,8 +1081,8 @@ if st.session_state.page == "Home":
                         {value}
                     </div>
 
-                    <div class="kpi-note">
-                        {note}
+                    <div class="kpi-description">
+                        {desc}
                     </div>
 
                 </div>
@@ -942,23 +1095,31 @@ if st.session_state.page == "Home":
     # -------------------------------------------------------------------------
 
     st.markdown(
-        '<div class="section">'
-        '<div class="section-title">AI-generated insights</div>'
-        '<div class="section-subtitle">'
-        'The most important things your operations team should know right now.'
-        '</div></div>',
+        """
+        <div class="section">
+
+            <div class="section-title">
+                AI Intelligence
+            </div>
+
+            <div class="section-description">
+                The most important findings generated by the AI diagnostic engine.
+            </div>
+
+        </div>
+        """,
         unsafe_allow_html=True,
     )
 
     left, right = st.columns(
-        [1.45, 1]
+        [1.55, 1]
     )
 
     with left:
 
         st.markdown(
             """
-            <div class="ai-panel">
+            <div class="ai-card">
 
                 <div class="ai-header">
 
@@ -968,11 +1129,11 @@ if st.session_state.page == "Home":
 
                     <div>
 
-                        <div class="ai-title">
+                        <div class="ai-name">
                             Green Solutions Intelligence
                         </div>
 
-                        <div class="ai-sub">
+                        <div class="ai-label">
                             AI diagnostic engine
                         </div>
 
@@ -997,29 +1158,31 @@ if st.session_state.page == "Home":
 
             st.markdown(
                 f"""
-                <div class="insight">
+                <div class="finding">
 
-                    <div class="insight-top">
+                    <div class="finding-header">
 
-                        <div class="insight-name">
+                        <div class="finding-title">
                             {icon}
                             {d.get("asset_id")}
-                            · {fault_label(d.get("fault_hypothesis"))}
+                            ·
+                            {fault_label(d.get("fault_hypothesis"))}
                         </div>
 
                         <div class="{risk_class(level)}">
-                            {level}
+                            {float(d.get("confidence", 0)):.0%}
+                            confidence
                         </div>
 
                     </div>
 
-                    <div class="insight-description">
+                    <div class="finding-description">
 
                         {d.get("evidence", "")}
 
                         <br><br>
 
-                        <b>Next best action:</b>
+                        <b>Recommended action:</b>
                         {d.get("recommended_action", "")}
 
                     </div>
@@ -1041,13 +1204,12 @@ if st.session_state.page == "Home":
             <div class="copilot">
 
                 <div class="copilot-title">
-                    ✦ Ask Green Solutions AI
+                    ✦ Green Solutions AI
                 </div>
 
-                <div class="copilot-text">
-                    Explore your portfolio using natural language.
-                    Ask why an asset is underperforming, what requires
-                    attention, or what your technicians should do next.
+                <div class="copilot-description">
+                    Ask questions about your portfolio,
+                    asset health, findings and recommended actions.
                 </div>
 
             </div>
@@ -1058,98 +1220,67 @@ if st.session_state.page == "Home":
         st.write("")
 
         if st.button(
-            "Open AI Copilot →",
-            use_container_width=True
+            "Open AI Intelligence →",
+            key="overview_ai",
+            use_container_width=True,
         ):
 
-            st.session_state.page = "AI Copilot"
+            st.session_state.page = "AI Intelligence"
 
             st.rerun()
 
-    # -------------------------------------------------------------------------
-    # PRODUCT CAPABILITIES
-    # -------------------------------------------------------------------------
+        st.write("")
 
-    st.markdown(
-        '<div class="section">'
-        '<div class="section-title">Intelligence built for operations</div>'
-        '<div class="section-subtitle">'
-        'From raw operational data to decisions your teams can act on.'
-        '</div></div>',
-        unsafe_allow_html=True,
-    )
+        st.markdown(
+            f"""
+            <div class="ai-card">
 
-    f1, f2, f3 = st.columns(3)
+                <div class="ai-name">
+                    Operational Priorities
+                </div>
 
-    features = [
-        (
-            f1,
-            "✦",
-            "AI Asset Diagnostics",
-            "Automatically identify abnormal asset behavior, classify likely faults, and explain the evidence behind every finding.",
-        ),
-        (
-            f2,
-            "⚙",
-            "Operational Intelligence",
-            "Turn AI findings into technician-ready actions and operational priorities.",
-        ),
-        (
-            f3,
-            "🛡",
-            "Responsible AI",
-            "Confidence scoring, evidence grounding and human-review controls help keep AI decisions transparent.",
-        ),
-    ]
+                <br>
 
-    for col, icon, title, text in features:
+                <div class="finding-description">
 
-        with col:
+                    🔴 <b>{len(high_risk_assets)}</b>
+                    high-priority assets
 
-            st.markdown(
-                f"""
-                <div class="feature-card">
+                    <br><br>
 
-                    <div class="feature-icon">
-                        {icon}
-                    </div>
+                    🟠 <b>{len(active_findings)}</b>
+                    active findings
 
-                    <div class="feature-title">
-                        {title}
-                    </div>
+                    <br><br>
 
-                    <div class="feature-text">
-                        {text}
-                    </div>
+                    🟢 <b>{healthy_assets}</b>
+                    healthy assets
 
                 </div>
-                """,
-                unsafe_allow_html=True,
-            )
+
+            </div>
+            """,
+            unsafe_allow_html=True,
+        )
 
 
 # =============================================================================
-# AI COPILOT
+# AI INTELLIGENCE
 # =============================================================================
 
-elif st.session_state.page == "AI Copilot":
+elif st.session_state.page == "AI Intelligence":
 
     st.markdown(
         """
-        <div class="hero">
+        <div class="page-header">
 
-            <div class="hero-eyebrow">
-                GREEN SOLUTIONS AI
+            <div class="page-title">
+                AI Intelligence
             </div>
 
-            <div class="hero-title">
-                Your sustainability<br>
-                <span>intelligence copilot.</span>
-            </div>
-
-            <div class="hero-description">
-                Ask questions about your portfolio and get answers
-                grounded in the AI diagnostics already generated.
+            <div class="page-subtitle">
+                Understand what the AI discovered, why it matters,
+                and what action is recommended.
             </div>
 
         </div>
@@ -1157,74 +1288,42 @@ elif st.session_state.page == "AI Copilot":
         unsafe_allow_html=True,
     )
 
-    question = st.text_area(
-        "Ask Green Solutions AI",
-        placeholder=(
-            "Try: Which assets need immediate attention and why?"
-        ),
-        height=120,
+    st.markdown(
+        """
+        <div class="copilot">
+
+            <div class="copilot-title">
+                ✦ Ask Green Solutions AI
+            </div>
+
+            <div class="copilot-description">
+                Explore portfolio intelligence using natural language.
+            </div>
+
+        </div>
+        """,
+        unsafe_allow_html=True,
     )
 
-    quick = [
-        "Which assets need immediate attention?",
-        "Why is INV-01 underperforming?",
-        "Which assets have communication issues?",
-        "What should the technicians check?",
-    ]
-
-    st.markdown("**Suggested questions**")
-
-    cols = st.columns(4)
-
-    for col, q in zip(cols, quick):
-
-        with col:
-
-            if st.button(
-                q,
-                use_container_width=True
-            ):
-
-                question = q
+    question = st.text_input(
+        "Ask a question",
+        placeholder=(
+            "Example: Which assets need immediate attention and why?"
+        ),
+    )
 
     if question:
 
         q = question.lower()
 
-        if "immediate" in q or "attention" in q:
-
-            selected = [
-                d for d in diagnoses
-                if d.get("fault_hypothesis") != "none"
-            ]
+        if "attention" in q:
 
             response = (
-                f"{len(selected)} assets currently require "
-                "operational attention: "
+                f"{len(active_findings)} assets currently "
+                "require attention: "
                 + ", ".join(
                     d.get("asset_id")
-                    for d in selected
-                )
-                + "."
-            )
-
-        elif "communication" in q:
-
-            selected = [
-                d for d in diagnoses
-                if d.get("fault_hypothesis")
-                == "comm_dropout"
-            ]
-
-            response = (
-                "Communication issues were detected for: "
-                + (
-                    ", ".join(
-                        d.get("asset_id")
-                        for d in selected
-                    )
-                    if selected
-                    else "none of the analyzed assets"
+                    for d in active_findings
                 )
                 + "."
             )
@@ -1239,74 +1338,67 @@ elif st.session_state.page == "AI Copilot":
                 None,
             )
 
-            if d:
+            response = (
+                f"INV-01 is showing "
+                f"{fault_label(d.get('fault_hypothesis'))}. "
+                f"{d.get('evidence')} "
+                f"Recommended action: "
+                f"{d.get('recommended_action')}"
+                if d
+                else "INV-01 was not found."
+            )
 
-                response = (
-                    f"INV-01 is showing "
-                    f"{fault_label(d.get('fault_hypothesis'))}. "
-                    f"{d.get('evidence')} "
-                    f"Recommended action: "
-                    f"{d.get('recommended_action')}"
+        elif "communication" in q:
+
+            communication = [
+                d for d in diagnoses
+                if d.get("fault_hypothesis")
+                == "comm_dropout"
+            ]
+
+            response = (
+                "Communication anomalies were detected for: "
+                + ", ".join(
+                    d.get("asset_id")
+                    for d in communication
                 )
+                if communication
+                else
+                "No communication anomalies were detected."
+            )
 
-            else:
-
-                response = "INV-01 was not found."
-
-        elif "technician" in q or "check" in q:
+        elif "action" in q or "technician" in q:
 
             response = "\n\n".join(
                 f"{d.get('asset_id')}: "
                 f"{d.get('recommended_action')}"
-                for d in diagnoses
-                if d.get("fault_hypothesis") != "none"
+                for d in active_findings
             )
 
         else:
 
             response = (
-                "I can currently help you explore asset health, "
-                "diagnoses, evidence, confidence and recommended actions."
+                "Green Solutions AI can currently analyze "
+                "asset health, findings, evidence, confidence "
+                "and recommended actions."
             )
 
-        st.markdown("### ✦ AI Response")
+        st.markdown("### AI Response")
 
-        st.markdown(
-            f"""
-            <div class="ai-panel">
-
-                <div class="ai-title">
-                    Green Solutions AI
-                </div>
-
-                <br>
-
-                <div style="color:#40584b;line-height:1.7;">
-                    {response}
-                </div>
-
-            </div>
-            """,
-            unsafe_allow_html=True,
-        )
-
-
-# =============================================================================
-# ASSETS
-# =============================================================================
-
-elif st.session_state.page == "Assets":
+        st.info(response)
 
     st.markdown(
         """
         <div class="section">
+
             <div class="section-title">
-                Solar Asset Intelligence
+                Diagnostic Findings
             </div>
 
-            <div class="section-subtitle">
-                Understand what is happening at every asset.
+            <div class="section-description">
+                Evidence-backed findings generated by the AI engine.
             </div>
+
         </div>
         """,
         unsafe_allow_html=True,
@@ -1316,43 +1408,213 @@ elif st.session_state.page == "Assets":
 
         level = risk_level(d)
 
-        with st.container(border=True):
+        with st.expander(
+            f"{'🔴' if level == 'High' else '🟠' if level == 'Medium' else '🟢'} "
+            f"{d.get('asset_id')} — "
+            f"{fault_label(d.get('fault_hypothesis'))}"
+        ):
 
-            c1, c2, c3 = st.columns(
-                [1.3, 2.8, 1]
-            )
+            c1, c2, c3 = st.columns(3)
 
             with c1:
 
-                st.markdown(
-                    f"### {d.get('asset_id')}"
-                )
-
-                st.caption(
-                    f"{level} priority"
+                st.metric(
+                    "AI Confidence",
+                    f"{float(d.get('confidence', 0)):.0%}"
                 )
 
             with c2:
 
-                st.markdown(
-                    f"**{fault_label(d.get('fault_hypothesis'))}**"
-                )
-
-                st.write(
-                    d.get("evidence", "")
-                )
-
-                st.caption(
-                    f"Recommended action: "
-                    f"{d.get('recommended_action', '')}"
+                st.metric(
+                    "Priority",
+                    level
                 )
 
             with c3:
 
                 st.metric(
-                    "Confidence",
-                    f"{float(d.get('confidence', 0)):.0%}"
+                    "Status",
+                    "Needs Action"
+                    if d.get("fault_hypothesis") != "none"
+                    else "Healthy"
                 )
+
+            st.markdown("**Evidence**")
+
+            st.write(
+                d.get("evidence", "")
+            )
+
+            st.markdown("**Recommended Action**")
+
+            st.success(
+                d.get(
+                    "recommended_action",
+                    ""
+                )
+            )
+
+
+# =============================================================================
+# ASSET 360
+# =============================================================================
+
+elif st.session_state.page == "Asset 360":
+
+    st.markdown(
+        """
+        <div class="page-header">
+
+            <div class="page-title">
+                Asset 360
+            </div>
+
+            <div class="page-subtitle">
+                A complete intelligence view for every monitored asset.
+            </div>
+
+        </div>
+        """,
+        unsafe_allow_html=True,
+    )
+
+    asset_options = [
+        d.get("asset_id")
+        for d in diagnoses
+    ]
+
+    selected_asset = st.selectbox(
+        "Select asset",
+        asset_options
+    )
+
+    selected = next(
+        (
+            d for d in diagnoses
+            if d.get("asset_id")
+            == selected_asset
+        ),
+        None,
+    )
+
+    if selected:
+
+        level = risk_level(selected)
+
+        st.markdown(
+            f"""
+            <div class="asset-card">
+
+                <div class="asset-id">
+                    {selected.get("asset_id")}
+                </div>
+
+                <div class="asset-fault">
+                    {fault_label(selected.get("fault_hypothesis"))}
+                    ·
+                    {level} priority
+                </div>
+
+            </div>
+            """,
+            unsafe_allow_html=True,
+        )
+
+        a1, a2, a3 = st.columns(3)
+
+        with a1:
+
+            st.metric(
+                "AI Confidence",
+                f"{float(selected.get('confidence', 0)):.0%}"
+            )
+
+        with a2:
+
+            st.metric(
+                "Risk",
+                level
+            )
+
+        with a3:
+
+            st.metric(
+                "Status",
+                "Attention Required"
+                if selected.get("fault_hypothesis") != "none"
+                else "Healthy"
+            )
+
+        st.markdown(
+            """
+            <div class="section">
+
+                <div class="section-title">
+                    AI Diagnosis
+                </div>
+
+            </div>
+            """,
+            unsafe_allow_html=True,
+        )
+
+        c1, c2 = st.columns(2)
+
+        with c1:
+
+            st.markdown(
+                """
+                <div class="ai-card">
+
+                    <div class="ai-name">
+                        What is happening?
+                    </div>
+
+                    <br>
+
+                """,
+                unsafe_allow_html=True,
+            )
+
+            st.write(
+                selected.get(
+                    "evidence",
+                    ""
+                )
+            )
+
+            st.markdown(
+                "</div>",
+                unsafe_allow_html=True,
+            )
+
+        with c2:
+
+            st.markdown(
+                """
+                <div class="ai-card">
+
+                    <div class="ai-name">
+                        Recommended next action
+                    </div>
+
+                    <br>
+
+                """,
+                unsafe_allow_html=True,
+            )
+
+            st.success(
+                selected.get(
+                    "recommended_action",
+                    ""
+                )
+            )
+
+            st.markdown(
+                "</div>",
+                unsafe_allow_html=True,
+            )
 
 
 # =============================================================================
@@ -1363,28 +1625,31 @@ elif st.session_state.page == "Operations":
 
     st.markdown(
         """
-        <div class="section">
-            <div class="section-title">
-                Operations Command Center
+        <div class="page-header">
+
+            <div class="page-title">
+                Operations
             </div>
 
-            <div class="section-subtitle">
-                Convert AI findings into prioritized field actions.
+            <div class="page-subtitle">
+                Convert AI findings into prioritized operational actions.
             </div>
+
         </div>
         """,
         unsafe_allow_html=True,
     )
 
-    work_orders = [
-        d for d in diagnoses
-        if d.get("fault_hypothesis") != "none"
-    ]
+    if not active_findings:
 
-    if work_orders:
+        st.success(
+            "No operational actions are currently required."
+        )
+
+    else:
 
         for index, d in enumerate(
-            work_orders,
+            active_findings,
             start=1
         ):
 
@@ -1392,8 +1657,8 @@ elif st.session_state.page == "Operations":
 
             with st.container(border=True):
 
-                c1, c2, c3 = st.columns(
-                    [.5, 1.3, 4]
+                c1, c2, c3, c4 = st.columns(
+                    [.4, 1.3, 2.2, 3.5]
                 )
 
                 with c1:
@@ -1408,9 +1673,23 @@ elif st.session_state.page == "Operations":
                         f"**{d.get('asset_id')}**"
                     )
 
-                    st.caption(
-                        f"{level} priority"
-                    )
+                    if level == "High":
+
+                        st.markdown(
+                            '<span class="priority-high">'
+                            'HIGH PRIORITY'
+                            '</span>',
+                            unsafe_allow_html=True,
+                        )
+
+                    else:
+
+                        st.markdown(
+                            '<span class="priority-medium">'
+                            'MEDIUM PRIORITY'
+                            '</span>',
+                            unsafe_allow_html=True,
+                        )
 
                 with c3:
 
@@ -1418,15 +1697,30 @@ elif st.session_state.page == "Operations":
                         f"**{fault_label(d.get('fault_hypothesis'))}**"
                     )
 
-                    st.write(
-                        d.get("recommended_action", "")
+                    st.caption(
+                        f"Confidence: "
+                        f"{float(d.get('confidence', 0)):.0%}"
                     )
 
-    else:
+                with c4:
 
-        st.success(
-            "No operational actions are currently required."
-        )
+                    st.write(
+                        d.get(
+                            "recommended_action",
+                            ""
+                        )
+                    )
+
+                    if st.button(
+                        "Review Action",
+                        key=f"review_{index}",
+                    ):
+
+                        st.info(
+                            "Human review workflow selected. "
+                            "Production version can route this action "
+                            "through an approval workflow."
+                        )
 
 
 # =============================================================================
@@ -1437,18 +1731,64 @@ elif st.session_state.page == "Reports":
 
     st.markdown(
         """
-        <div class="section">
-            <div class="section-title">
-                Enterprise Reports
+        <div class="page-header">
+
+            <div class="page-title">
+                Reports
             </div>
 
-            <div class="section-subtitle">
-                AI-generated documentation for operations, owners and compliance.
+            <div class="page-subtitle">
+                AI-generated documentation for operations,
+                asset owners and compliance teams.
             </div>
+
         </div>
         """,
         unsafe_allow_html=True,
     )
+
+    r1, r2, r3 = st.columns(3)
+
+    report_cards = [
+        (
+            r1,
+            "Field Work Order",
+            "Technician-ready actions generated from AI findings.",
+        ),
+        (
+            r2,
+            "Owner Report",
+            "Plain-language portfolio summary for asset owners.",
+        ),
+        (
+            r3,
+            "Compliance Summary",
+            "Formal record of findings, actions and status.",
+        ),
+    ]
+
+    for col, title, description in report_cards:
+
+        with col:
+
+            st.markdown(
+                f"""
+                <div class="report-card">
+
+                    <div class="report-title">
+                        {title}
+                    </div>
+
+                    <div class="report-description">
+                        {description}
+                    </div>
+
+                </div>
+                """,
+                unsafe_allow_html=True,
+            )
+
+    st.write("")
 
     tab1, tab2, tab3 = st.tabs(
         [
@@ -1458,28 +1798,25 @@ elif st.session_state.page == "Reports":
         ]
     )
 
-    reports = [
+    report_data = [
         (
             tab1,
             "work_order_text",
             "green_solutions_work_order.txt",
-            "Field Work Order",
         ),
         (
             tab2,
             "owner_report_text",
             "green_solutions_owner_report.txt",
-            "Owner Report",
         ),
         (
             tab3,
             "compliance_summary_text",
             "green_solutions_compliance.txt",
-            "Compliance Summary",
         ),
     ]
 
-    for tab, key, filename, label in reports:
+    for tab, key, filename in report_data:
 
         with tab:
 
@@ -1489,43 +1826,113 @@ elif st.session_state.page == "Reports":
             )
 
             st.text_area(
-                label,
+                "Generated report",
                 text,
-                height=380,
+                height=350,
             )
 
             st.download_button(
-                f"Download {label}",
-                text,
+                "Download Report",
+                data=text,
                 file_name=filename,
                 mime="text/plain",
                 use_container_width=True,
             )
 
+    # -------------------------------------------------------------------------
+    # FEEDBACK
+    # -------------------------------------------------------------------------
+
+    st.markdown(
+        """
+        <div class="section">
+
+            <div class="section-title">
+                Product Feedback
+            </div>
+
+            <div class="section-description">
+                Help us validate whether Green Solutions is useful
+                for real sustainability operations.
+            </div>
+
+        </div>
+        """,
+        unsafe_allow_html=True,
+    )
+
+    with st.form("feedback"):
+
+        trust = st.slider(
+            "How much would you trust the AI findings?",
+            1,
+            5,
+            3,
+        )
+
+        clarity = st.slider(
+            "How clear were the findings and recommendations?",
+            1,
+            5,
+            3,
+        )
+
+        time_saved = st.radio(
+            "Would this save your team time?",
+            [
+                "Yes, clearly",
+                "Somewhat",
+                "Not really",
+                "Not sure",
+            ],
+        )
+
+        role = st.text_input(
+            "Your role"
+        )
+
+        comments = st.text_area(
+            "What would make Green Solutions more useful?"
+        )
+
+        submitted = st.form_submit_button(
+            "Submit Feedback"
+        )
+
+        if submitted:
+
+            save_feedback(
+                {
+                    "trust_score": trust,
+                    "clarity_score": clarity,
+                    "time_saved": time_saved,
+                    "role": role,
+                    "comments": comments,
+                }
+            )
+
+            st.success(
+                "Thank you. Your feedback has been recorded."
+            )
+
 
 # =============================================================================
-# FOOTER / SYSTEM STATUS
+# FOOTER
 # =============================================================================
 
 st.divider()
-
-mode = (
-    "Demo AI"
-    if demo_mode_active()
-    else "Live AI"
-)
 
 st.markdown(
     f"""
     <div class="footer">
 
-        Green Solutions Intelligent Platform
-        &nbsp;•&nbsp;
-        {mode}
-        &nbsp;•&nbsp;
-        AI-assisted decision support
-        &nbsp;•&nbsp;
-        {datetime.now().strftime("%Y")}
+        🌱 Green Solutions
+        &nbsp; • &nbsp;
+        Intelligent Sustainability Platform
+        &nbsp; • &nbsp;
+        {'Demo AI' if demo_mode_active() else 'Live AI'}
+        &nbsp; • &nbsp;
+        {datetime.now().year}
 
     </div>
     """,
