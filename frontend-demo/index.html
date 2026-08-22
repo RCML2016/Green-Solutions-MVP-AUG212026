@@ -1,309 +1,1582 @@
-
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Green Solutions | AI Sustainability Intelligence</title>
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
 
     <meta
         name="description"
-        content="Green Solutions AI-powered sustainability intelligence platform."
+        content="Green Solutions — AI-powered sustainability intelligence for renewable energy assets, operations and decision-making."
     >
 
-    <link rel="stylesheet" href="styles.css">
+    <meta
+        name="theme-color"
+        content="#071c14"
+    >
+
+    <title>
+        Green Solutions | AI-Powered Sustainability Intelligence
+    </title>
+
+    <link
+        rel="preconnect"
+        href="https://fonts.googleapis.com"
+    >
+
+    <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin
+    >
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@500;600;700;800&display=swap"
+        rel="stylesheet"
+    >
+
+    <link
+        rel="stylesheet"
+        href="styles.css"
+    >
+
 </head>
+
 
 <body>
 
-<div class="app-shell">
 
-    <!-- =========================================================
-         SIDEBAR
-    ========================================================== -->
+<!-- =====================================================
+     NAVIGATION
+===================================================== -->
 
-    <aside class="sidebar">
+<header class="site-header">
 
-        <div class="brand">
+    <div class="container nav-container">
 
-            <div class="brand-mark">
-                ✦
-            </div>
+        <a
+            href="#top"
+            class="brand"
+        >
 
-            <div class="brand-text">
-                <div class="brand-name">
-                    Green Solutions
-                </div>
+            <span class="brand-mark">
 
-                <div class="brand-subtitle">
-                    AI Sustainability Intelligence
-                </div>
-            </div>
+                <span></span>
+                <span></span>
+                <span></span>
 
-        </div>
+            </span>
 
+            <span class="brand-text">
 
-        <!-- Workspace -->
+                GREEN
+                <strong>SOLUTIONS</strong>
 
-        <div class="workspace-section">
+            </span>
 
-            <div class="section-label">
-                WORKSPACE
-            </div>
-
-            <div class="workspace-card">
-
-                <div class="workspace-icon">
-                    GS
-                </div>
-
-                <div class="workspace-info">
-
-                    <strong>
-                        Solar Portfolio
-                    </strong>
-
-                    <small>
-                        Enterprise Demo
-                    </small>
-
-                </div>
-
-                <div class="workspace-arrow">
-                    ⌄
-                </div>
-
-            </div>
-
-        </div>
+        </a>
 
 
-        <!-- Navigation -->
+        <nav class="desktop-nav">
 
-        <nav class="main-nav">
+            <a href="#solutions">
+                Solutions
+            </a>
 
-            <button
-                class="nav-item active"
-                data-page="overview"
-            >
-                <span class="nav-icon">⌂</span>
-                <span>Overview</span>
-            </button>
+            <a href="#platform">
+                Platform
+            </a>
 
+            <a href="#how-it-works">
+                How It Works
+            </a>
 
-            <button
-                class="nav-item"
-                data-page="intelligence"
-            >
-                <span class="nav-icon">✦</span>
-                <span>AI Intelligence</span>
-            </button>
-
-
-            <button
-                class="nav-item"
-                data-page="assets"
-            >
-                <span class="nav-icon">◉</span>
-                <span>Asset 360</span>
-            </button>
-
-
-            <button
-                class="nav-item"
-                data-page="operations"
-            >
-                <span class="nav-icon">⚙</span>
-                <span>Operations</span>
-            </button>
-
-
-            <button
-                class="nav-item"
-                data-page="reports"
-            >
-                <span class="nav-icon">▣</span>
-                <span>Reports</span>
-            </button>
+            <a href="#about">
+                About
+            </a>
 
         </nav>
 
 
-        <!-- Bottom Sidebar -->
+        <div class="nav-actions">
 
-        <div class="sidebar-bottom">
+            <a
+                href="#contact"
+                class="nav-link"
+            >
+                Contact
+            </a>
 
-            <div class="copilot-mini">
+            <a
+                href="#platform"
+                class="button button-dark button-small"
+            >
+                Launch Platform
+            </a>
 
-                <div class="copilot-mini-icon">
-                    ✦
-                </div>
+        </div>
 
-                <div class="copilot-mini-text">
 
-                    <strong>
-                        AI Copilot
-                    </strong>
+        <button
+            class="mobile-menu-button"
+            id="mobileMenuButton"
+            aria-label="Open navigation"
+        >
 
-                    <small>
-                        Ready to assist
-                    </small>
+            <span></span>
+            <span></span>
+            <span></span>
 
-                </div>
+        </button>
 
-                <span class="online-dot"></span>
+    </div>
+
+
+    <div
+        class="mobile-menu"
+        id="mobileMenu"
+    >
+
+        <a href="#solutions">
+            Solutions
+        </a>
+
+        <a href="#platform">
+            Platform
+        </a>
+
+        <a href="#how-it-works">
+            How It Works
+        </a>
+
+        <a href="#about">
+            About
+        </a>
+
+        <a href="#contact">
+            Contact
+        </a>
+
+        <a
+            href="#platform"
+            class="button button-dark"
+        >
+            Launch Platform
+        </a>
+
+    </div>
+
+</header>
+
+
+<main id="top">
+
+
+<!-- =====================================================
+     HERO
+===================================================== -->
+
+<section class="hero-section">
+
+    <div class="hero-glow hero-glow-one"></div>
+
+    <div class="hero-glow hero-glow-two"></div>
+
+
+    <div class="container hero-grid">
+
+
+        <div class="hero-content">
+
+            <div class="eyebrow eyebrow-light">
+
+                <span class="status-dot"></span>
+
+                AI-POWERED SUSTAINABILITY INTELLIGENCE
 
             </div>
 
 
-            <div class="user-card">
+            <h1>
 
-                <div class="avatar">
-                    RC
-                </div>
+                Make every renewable asset
 
-                <div class="user-info">
+                <span>
+                    more intelligent.
+                </span>
+
+            </h1>
+
+
+            <p class="hero-description">
+
+                Green Solutions transforms renewable energy
+                data into actionable intelligence — helping
+                asset owners identify risk, understand
+                performance and make faster operational
+                decisions.
+
+            </p>
+
+
+            <div class="hero-actions">
+
+                <a
+                    href="#platform"
+                    class="button button-green"
+                >
+                    Explore Platform
+                    <span>→</span>
+                </a>
+
+
+                <a
+                    href="#how-it-works"
+                    class="button button-outline-light"
+                >
+                    See How It Works
+                </a>
+
+            </div>
+
+
+            <div class="hero-proof">
+
+                <div>
 
                     <strong>
-                        Portfolio Admin
+                        AI
                     </strong>
 
-                    <small>
-                        Enterprise
-                    </small>
+                    <span>
+                        Asset Intelligence
+                    </span>
 
                 </div>
 
-                <button class="user-more">
-                    •••
-                </button>
+
+                <div>
+
+                    <strong>
+                        360°
+                    </strong>
+
+                    <span>
+                        Portfolio Visibility
+                    </span>
+
+                </div>
+
+
+                <div>
+
+                    <strong>
+                        24/7
+                    </strong>
+
+                    <span>
+                        Intelligent Monitoring
+                    </span>
+
+                </div>
 
             </div>
 
         </div>
 
-    </aside>
 
+        <!-- HERO PRODUCT VISUAL -->
 
-    <!-- =========================================================
-         MAIN APPLICATION
-    ========================================================== -->
+        <div class="hero-product">
 
-    <main class="main-content">
+            <div class="product-window">
 
+                <div class="window-top">
 
-        <!-- Top Navigation -->
+                    <div class="window-dots">
 
-        <header class="topbar">
+                        <i></i>
+                        <i></i>
+                        <i></i>
 
-            <div class="mobile-brand">
+                    </div>
 
-                <span class="mobile-brand-mark">
-                    ✦
-                </span>
+                    <span>
+                        GREEN SOLUTIONS AI
+                    </span>
 
-                Green Solutions
-
-            </div>
-
-
-            <div class="breadcrumb">
-
-                <span>
-                    Solar Portfolio
-                </span>
-
-                <b>
-                    /
-                </b>
-
-                <strong id="breadcrumb-page">
-                    Overview
-                </strong>
-
-            </div>
-
-
-            <div class="topbar-actions">
-
-                <div class="ai-status">
-
-                    <span class="status-dot"></span>
-
-                    AI ENGINE ONLINE
+                    <div class="window-live">
+                        ● LIVE
+                    </div>
 
                 </div>
 
 
-                <button
-                    class="top-icon"
-                    title="Notifications"
-                >
-                    ◌
-                </button>
+                <div class="window-body">
 
 
-                <button
-                    class="top-icon"
-                    title="Settings"
-                >
-                    ⚙
-                </button>
+                    <div class="window-header">
+
+                        <div>
+
+                            <small>
+                                PORTFOLIO INTELLIGENCE
+                            </small>
+
+                            <h3>
+                                Renewable Portfolio
+                            </h3>
+
+                        </div>
+
+                        <span class="mini-badge">
+                            AI MONITORING
+                        </span>
+
+                    </div>
+
+
+                    <div class="product-kpis">
+
+                        <div>
+
+                            <small>
+                                PORTFOLIO HEALTH
+                            </small>
+
+                            <strong>
+                                80%
+                            </strong>
+
+                            <span class="positive">
+                                ↑ 4.2%
+                            </span>
+
+                        </div>
+
+
+                        <div>
+
+                            <small>
+                                AI FINDINGS
+                            </small>
+
+                            <strong>
+                                04
+                            </strong>
+
+                            <span>
+                                02 high priority
+                            </span>
+
+                        </div>
+
+
+                        <div>
+
+                            <small>
+                                AI CONFIDENCE
+                            </small>
+
+                            <strong>
+                                84%
+                            </strong>
+
+                            <span>
+                                Portfolio avg.
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="product-chart">
+
+                        <div class="chart-label">
+
+                            <span>
+                                ENERGY PERFORMANCE
+                            </span>
+
+                            <span>
+                                LAST 24 HOURS
+                            </span>
+
+                        </div>
+
+
+                        <div class="chart">
+
+                            <div class="chart-line chart-line-one"></div>
+
+                            <div class="chart-line chart-line-two"></div>
+
+                            <div class="chart-line chart-line-three"></div>
+
+                            <div class="chart-area"></div>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="finding-preview">
+
+                        <div class="finding-title">
+
+                            <span class="warning-icon">
+                                !
+                            </span>
+
+                            AI PRIORITY FINDINGS
+
+                        </div>
+
+
+                        <div class="preview-row">
+
+                            <div>
+
+                                <strong>
+                                    INV-04
+                                </strong>
+
+                                <span>
+                                    Communication Dropout
+                                </span>
+
+                            </div>
+
+                            <b>
+                                91%
+                            </b>
+
+                        </div>
+
+
+                        <div class="preview-row">
+
+                            <div>
+
+                                <strong>
+                                    INV-01
+                                </strong>
+
+                                <span>
+                                    String Underperformance
+                                </span>
+
+                            </div>
+
+                            <b>
+                                83%
+                            </b>
+
+                        </div>
+
+                    </div>
+
+                </div>
 
             </div>
 
-        </header>
+
+            <div class="floating-card floating-card-top">
+
+                <span class="floating-icon">
+                    ✦
+                </span>
+
+                <div>
+
+                    <strong>
+                        AI Insight
+                    </strong>
+
+                    <small>
+                        4 actionable findings
+                    </small>
+
+                </div>
+
+            </div>
 
 
-        <!-- =====================================================
-             DYNAMIC CONTENT
-        ====================================================== -->
+            <div class="floating-card floating-card-bottom">
 
-        <section
-            id="app-content"
-            class="page-content"
-        >
-        </section>
+                <span class="floating-icon green">
+                    ✓
+                </span>
 
+                <div>
 
-        <!-- =====================================================
-             FOOTER
-        ====================================================== -->
+                    <strong>
+                        Action Ready
+                    </strong>
 
-        <footer class="footer">
+                    <small>
+                        Operations prioritized
+                    </small>
 
-            Green Solutions
-            <span>·</span>
-            Intelligent Sustainability Platform
-            <span>·</span>
-            Quick Rollout Demo
-            <span>·</span>
-            2026
+                </div>
 
-        </footer>
+            </div>
 
-    </main>
+        </div>
 
-</div>
+    </div>
 
 
-<!-- =========================================================
-     TOAST NOTIFICATION
-========================================================== -->
+    <div class="hero-bottom-line">
 
-<div
-    id="toast"
-    class="toast"
+        <div class="container">
+
+            <span>
+                BUILT FOR THE RENEWABLE ENERGY FUTURE
+            </span>
+
+            <div class="line"></div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     INTRO / VALUE
+===================================================== -->
+
+<section class="section section-white">
+
+    <div class="container">
+
+        <div class="intro-grid">
+
+            <div>
+
+                <div class="eyebrow">
+                    FROM DATA TO DECISION
+                </div>
+
+                <h2 class="section-title">
+
+                    The intelligence layer
+                    for renewable energy.
+
+                </h2>
+
+            </div>
+
+
+            <div>
+
+                <p class="large-text">
+
+                    Renewable energy portfolios generate
+                    enormous amounts of operational data.
+                    The challenge isn't collecting it.
+
+                    <strong>
+                        It's knowing what matters.
+                    </strong>
+
+                </p>
+
+                <p class="body-text">
+
+                    Green Solutions applies AI reasoning to
+                    transform raw asset data into understandable
+                    findings, prioritized actions and
+                    decision-ready reports.
+
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     THREE PILLARS
+===================================================== -->
+
+<section
+    class="section section-soft"
+    id="how-it-works"
 >
-</div>
+
+    <div class="container">
+
+        <div class="section-heading centered">
+
+            <div class="eyebrow">
+                SEE · UNDERSTAND · ACT
+            </div>
+
+            <h2 class="section-title">
+                Intelligence that moves with your operation.
+            </h2>
+
+            <p>
+                One connected intelligence workflow from
+                asset data to operational action.
+            </p>
+
+        </div>
 
 
-<!-- =========================================================
-     JAVASCRIPT
-========================================================== -->
+        <div class="pillar-grid">
+
+
+            <article class="pillar">
+
+                <div class="pillar-number">
+                    01
+                </div>
+
+                <div class="pillar-icon">
+                    ◉
+                </div>
+
+                <h3>
+                    See
+                </h3>
+
+                <p>
+                    Gain a unified view of portfolio health,
+                    asset performance and emerging anomalies.
+                </p>
+
+                <ul>
+
+                    <li>
+                        Portfolio visibility
+                    </li>
+
+                    <li>
+                        Asset-level intelligence
+                    </li>
+
+                    <li>
+                        Continuous monitoring
+                    </li>
+
+                </ul>
+
+            </article>
+
+
+            <article class="pillar featured">
+
+                <div class="pillar-number">
+                    02
+                </div>
+
+                <div class="pillar-icon">
+                    ✦
+                </div>
+
+                <h3>
+                    Understand
+                </h3>
+
+                <p>
+                    AI identifies abnormal patterns and
+                    explains the evidence behind each finding.
+                </p>
+
+                <ul>
+
+                    <li>
+                        AI diagnostics
+                    </li>
+
+                    <li>
+                        Explainable findings
+                    </li>
+
+                    <li>
+                        Confidence scoring
+                    </li>
+
+                </ul>
+
+            </article>
+
+
+            <article class="pillar">
+
+                <div class="pillar-number">
+                    03
+                </div>
+
+                <div class="pillar-icon">
+                    →
+                </div>
+
+                <h3>
+                    Act
+                </h3>
+
+                <p>
+                    Convert intelligence into prioritized
+                    operational actions and business reports.
+                </p>
+
+                <ul>
+
+                    <li>
+                        Work-order recommendations
+                    </li>
+
+                    <li>
+                        Operations prioritization
+                    </li>
+
+                    <li>
+                        AI-generated reporting
+                    </li>
+
+                </ul>
+
+            </article>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     SOLUTIONS
+===================================================== -->
+
+<section
+    class="section section-white"
+    id="solutions"
+>
+
+    <div class="container">
+
+        <div class="section-heading">
+
+            <div class="eyebrow">
+                SOLUTIONS
+            </div>
+
+            <h2 class="section-title">
+                One intelligence platform.
+                Multiple operational outcomes.
+            </h2>
+
+            <p>
+                Designed to connect the people, data and
+                decisions that keep renewable assets performing.
+            </p>
+
+        </div>
+
+
+        <div class="solutions-grid">
+
+
+            <article class="solution-card large">
+
+                <div class="solution-top">
+
+                    <span class="solution-icon">
+                        ◈
+                    </span>
+
+                    <span>
+                        01
+                    </span>
+
+                </div>
+
+                <h3>
+                    Asset Intelligence
+                </h3>
+
+                <p>
+                    Understand the health and behavior of every
+                    asset across your renewable portfolio.
+                </p>
+
+                <a href="#platform">
+                    Explore Asset 360 →
+                </a>
+
+            </article>
+
+
+            <article class="solution-card">
+
+                <div class="solution-top">
+
+                    <span class="solution-icon">
+                        ✦
+                    </span>
+
+                    <span>
+                        02
+                    </span>
+
+                </div>
+
+                <h3>
+                    AI Diagnostics
+                </h3>
+
+                <p>
+                    Detect anomalies, identify probable causes
+                    and surface confidence-backed findings.
+                </p>
+
+                <a href="#platform">
+                    Explore AI Intelligence →
+                </a>
+
+            </article>
+
+
+            <article class="solution-card">
+
+                <div class="solution-top">
+
+                    <span class="solution-icon">
+                        ↗
+                    </span>
+
+                    <span>
+                        03
+                    </span>
+
+                </div>
+
+                <h3>
+                    Intelligent Operations
+                </h3>
+
+                <p>
+                    Turn AI findings into prioritized actions
+                    for field and operations teams.
+                </p>
+
+                <a href="#platform">
+                    Explore Operations →
+                </a>
+
+            </article>
+
+
+            <article class="solution-card">
+
+                <div class="solution-top">
+
+                    <span class="solution-icon">
+                        ▣
+                    </span>
+
+                    <span>
+                        04
+                    </span>
+
+                </div>
+
+                <h3>
+                    AI Reporting
+                </h3>
+
+                <p>
+                    Generate owner, technician and compliance
+                    reports from a single intelligence pipeline.
+                </p>
+
+                <a href="#platform">
+                    Explore Reporting →
+                </a>
+
+            </article>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     PLATFORM
+===================================================== -->
+
+<section
+    class="platform-section"
+    id="platform"
+>
+
+    <div class="container platform-grid">
+
+
+        <div class="platform-copy">
+
+            <div class="eyebrow eyebrow-light">
+                THE GREEN SOLUTIONS PLATFORM
+            </div>
+
+            <h2>
+
+                From portfolio
+                visibility to
+                <span>
+                    intelligent action.
+                </span>
+
+            </h2>
+
+            <p>
+
+                A unified operating experience for renewable
+                asset intelligence — designed to help teams
+                move from reactive monitoring to proactive
+                decision-making.
+
+            </p>
+
+
+            <div class="platform-features">
+
+                <div>
+
+                    <span>
+                        ✓
+                    </span>
+
+                    <p>
+                        AI-powered portfolio monitoring
+                    </p>
+
+                </div>
+
+
+                <div>
+
+                    <span>
+                        ✓
+                    </span>
+
+                    <p>
+                        Explainable asset diagnostics
+                    </p>
+
+                </div>
+
+
+                <div>
+
+                    <span>
+                        ✓
+                    </span>
+
+                    <p>
+                        Human-in-the-loop decision controls
+                    </p>
+
+                </div>
+
+
+                <div>
+
+                    <span>
+                        ✓
+                    </span>
+
+                    <p>
+                        Audience-specific AI reporting
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <a
+                href="https://green-solutions-ai.streamlit.app/"
+                target="_blank"
+                rel="noopener"
+                class="button button-green"
+            >
+
+                Launch AI Platform
+                <span>↗</span>
+
+            </a>
+
+        </div>
+
+
+        <div class="platform-visual">
+
+            <div class="architecture-card">
+
+                <div class="architecture-header">
+
+                    <span>
+                        INTELLIGENCE FLOW
+                    </span>
+
+                    <span class="architecture-status">
+                        ● ACTIVE
+                    </span>
+
+                </div>
+
+
+                <div class="architecture-flow">
+
+                    <div class="architecture-node">
+
+                        <div class="node-icon">
+                            ◌
+                        </div>
+
+                        <strong>
+                            Asset Data
+                        </strong>
+
+                        <small>
+                            Performance signals
+                        </small>
+
+                    </div>
+
+
+                    <div class="flow-line">
+                        →
+                    </div>
+
+
+                    <div class="architecture-node active">
+
+                        <div class="node-icon">
+                            ✦
+                        </div>
+
+                        <strong>
+                            AI Reasoning
+                        </strong>
+
+                        <small>
+                            Detect · Explain
+                        </small>
+
+                    </div>
+
+
+                    <div class="flow-line">
+                        →
+                    </div>
+
+
+                    <div class="architecture-node">
+
+                        <div class="node-icon">
+                            ✓
+                        </div>
+
+                        <strong>
+                            Action
+                        </strong>
+
+                        <small>
+                            Prioritize · Report
+                        </small>
+
+                    </div>
+
+                </div>
+
+
+                <div class="architecture-bottom">
+
+                    <div>
+
+                        <span>
+                            AI CONFIDENCE
+                        </span>
+
+                        <strong>
+                            84%
+                        </strong>
+
+                    </div>
+
+                    <div>
+
+                        <span>
+                            FINDINGS
+                        </span>
+
+                        <strong>
+                            04
+                        </strong>
+
+                    </div>
+
+                    <div>
+
+                        <span>
+                            ACTIONS
+                        </span>
+
+                        <strong>
+                            03
+                        </strong>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     TRUST / GOVERNANCE
+===================================================== -->
+
+<section class="section section-white">
+
+    <div class="container">
+
+        <div class="trust-grid">
+
+
+            <div>
+
+                <div class="eyebrow">
+                    ENTERPRISE-READY BY DESIGN
+                </div>
+
+                <h2 class="section-title">
+                    AI that knows when
+                    humans should decide.
+                </h2>
+
+                <p class="body-text">
+
+                    Green Solutions is designed around
+                    explainability, confidence scoring and
+                    human review — so AI recommendations can
+                    support operations without replacing
+                    operational accountability.
+
+                </p>
+
+            </div>
+
+
+            <div class="trust-items">
+
+                <div class="trust-item">
+
+                    <span>
+                        01
+                    </span>
+
+                    <div>
+
+                        <strong>
+                            Explainable AI
+                        </strong>
+
+                        <p>
+                            Every finding includes supporting
+                            evidence and recommended action.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="trust-item">
+
+                    <span>
+                        02
+                    </span>
+
+                    <div>
+
+                        <strong>
+                            Confidence Scoring
+                        </strong>
+
+                        <p>
+                            Lower-confidence findings can be
+                            routed for human review.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="trust-item">
+
+                    <span>
+                        03
+                    </span>
+
+                    <div>
+
+                        <strong>
+                            Human Oversight
+                        </strong>
+
+                        <p>
+                            AI supports decisions while
+                            operational teams retain control.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="trust-item">
+
+                    <span>
+                        04
+                    </span>
+
+                    <div>
+
+                        <strong>
+                            Audit-Friendly Reporting
+                        </strong>
+
+                        <p>
+                            Findings and actions can be
+                            transformed into structured reports.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     ABOUT / VISION
+===================================================== -->
+
+<section
+    class="vision-section"
+    id="about"
+>
+
+    <div class="container vision-content">
+
+        <div class="eyebrow eyebrow-light">
+            OUR VISION
+        </div>
+
+        <h2>
+            A smarter energy future
+            starts with better intelligence.
+        </h2>
+
+        <p>
+
+            We believe the next generation of renewable
+            energy operations will not be driven by more
+            dashboards.
+
+            It will be driven by systems that understand
+            what the data means — and help people act on it.
+
+        </p>
+
+        <div class="vision-stat-row">
+
+            <div>
+
+                <strong>
+                    DATA
+                </strong>
+
+                <span>
+                    Every signal matters.
+                </span>
+
+            </div>
+
+
+            <div>
+
+                <strong>
+                    AI
+                </strong>
+
+                <span>
+                    Every pattern can teach us.
+                </span>
+
+            </div>
+
+
+            <div>
+
+                <strong>
+                    ACTION
+                </strong>
+
+                <span>
+                    Every insight should move the operation.
+                </span>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     CTA
+===================================================== -->
+
+<section
+    class="cta-section"
+    id="contact"
+>
+
+    <div class="container cta-container">
+
+        <div class="eyebrow">
+            START THE JOURNEY
+        </div>
+
+        <h2>
+            Ready to make your
+            renewable assets smarter?
+        </h2>
+
+        <p>
+
+            Explore the Green Solutions AI platform and
+            see how operational intelligence can turn
+            renewable energy data into action.
+
+        </p>
+
+
+        <div class="cta-actions">
+
+            <a
+                href="https://green-solutions-ai.streamlit.app/"
+                target="_blank"
+                rel="noopener"
+                class="button button-dark"
+            >
+                Launch AI Platform
+                <span>↗</span>
+            </a>
+
+
+            <a
+                href="mailto:hello@greensolutions.ai"
+                class="button button-outline-dark"
+            >
+                Contact Us
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+</main>
+
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
+
+<footer class="site-footer">
+
+    <div class="container">
+
+        <div class="footer-main">
+
+
+            <div class="footer-brand">
+
+                <a
+                    href="#top"
+                    class="brand brand-footer"
+                >
+
+                    <span class="brand-mark">
+
+                        <span></span>
+                        <span></span>
+                        <span></span>
+
+                    </span>
+
+                    <span class="brand-text">
+
+                        GREEN
+                        <strong>SOLUTIONS</strong>
+
+                    </span>
+
+                </a>
+
+
+                <p>
+                    AI-powered sustainability intelligence
+                    for the renewable energy future.
+                </p>
+
+            </div>
+
+
+            <div class="footer-column">
+
+                <h4>
+                    Platform
+                </h4>
+
+                <a href="#platform">
+                    Overview
+                </a>
+
+                <a href="#platform">
+                    AI Intelligence
+                </a>
+
+                <a href="#platform">
+                    Asset 360
+                </a>
+
+                <a href="#platform">
+                    Operations
+                </a>
+
+                <a href="#platform">
+                    Reports
+                </a>
+
+            </div>
+
+
+            <div class="footer-column">
+
+                <h4>
+                    Company
+                </h4>
+
+                <a href="#about">
+                    About
+                </a>
+
+                <a href="#solutions">
+                    Solutions
+                </a>
+
+                <a href="#how-it-works">
+                    How It Works
+                </a>
+
+                <a href="#contact">
+                    Contact
+                </a>
+
+            </div>
+
+
+            <div class="footer-column">
+
+                <h4>
+                    Connect
+                </h4>
+
+                <a href="#contact">
+                    Request Demo
+                </a>
+
+                <a href="mailto:hello@greensolutions.ai">
+                    Email
+                </a>
+
+                <a
+                    href="https://green-solutions-ai.streamlit.app/"
+                    target="_blank"
+                    rel="noopener"
+                >
+                    Launch Platform ↗
+                </a>
+
+            </div>
+
+
+        </div>
+
+
+        <div class="footer-bottom">
+
+            <span>
+                © <span id="currentYear"></span>
+                Green Solutions. All rights reserved.
+            </span>
+
+            <span>
+                AI-Powered Sustainability Intelligence
+            </span>
+
+        </div>
+
+    </div>
+
+</footer>
+
 
 <script src="app.js"></script>
 
 </body>
+
 </html>
